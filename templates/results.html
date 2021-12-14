@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Book Recommendations</title></head>
+<body>
+<h2><font face="Tahoma" color="#000000">Book Recommendations</font></h2>
+<h5><font face="Tahoma" color="#000000">Reads that complement the weather.</font></h5>
+{% for book in booklist %}
+<img src= '{{book.image}}' width="90px" align="left" hspace="10">
+<h3 align="left">{{book.title}}</h3>
+<h4 align="left">{{book.author}}</h4>
+<p align="left">{{book.description}}</p>
+<br></br>
+{% endfor %}
+
+</body>
+</html>

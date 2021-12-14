@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Book Recommendations</title></head>
+<body>
+<h2><font face="Tahoma" color="#000000">WeatherReads</font></h2>
+<h5><font face="Tahoma" color="#000000">Choose the weather and get 5 book recommendations!</font></h5>
+{% for book in books %}
+<img src= '{{book.image()}}' alt = '{{book.title}}'>
+{% endfor %}
+
+<form action="/results" method="get">
+	<input type="radio" id="snow" name="weather" value="snow">
+	<label for="snow">Snowy</label><br>
+	<input type="radio" id="rain" name="weather" value="rain">
+	<label for="rain">Rainy</label><br>
+	<input type="radio" id="clouds" name="weather" value="clouds">
+	<label for="clouds">Cloudy</label><br>
+	<input type="radio" id="sun" name="weather" value="sun">
+	<label for="sun">Sunny</label><br>
+	<input type="submit" id="submit" name="submit">
+</form>
+</body>
+</html>
