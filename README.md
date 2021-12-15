@@ -1,6 +1,8 @@
-# JencyProject
-Final 310 Project
-For this project, I ended with a final product slightly different from what I had expected. Initially, I planned on using the Google Books API to sort through different categories and find a final initial project. However, I ended up realizing that the Google Books API was extremely difficult to sort through by genre (a call for "fiction" books would return a list with "Genesis" on it, which is highly contraversial). Thus, I ended up switching APIs to the New York Books API, which had booklists based on categories. 
-
-
-With the New York Books API, I returned 5 books based on the weather type. One of the challenges with this was figuring out how to randomize my list. I initally had used the random.choice command, but that would return repeat books. I had to use the random.sample command so that the program would return a list that did not include two of one book.  
+Reflection
+For this project, I ended with a final product slightly different from what I had expected. Initially, I planned on using the Google Books API to sort through different categories and return 5 book recommendations. The targeted users for this project are people who are indecisive and want quick and easy book recommendations. 
+After about a week or two of the Google books API, I ended up realizing that it was extremely difficult to sort through by genre (a call for "fiction" books would return a list with "Genesis" on it, which is highly controversial). Thus, I ended up switching APIs to the New York Books API, which had book lists based on categories. 
+With the New York Books API, I looped through 3 book lists to return 5 books based on the weather input from the user. One of the challenges with this was figuring out how to randomize my list. I initially had used the random.choice command, but that would return repeat books. I had to use the random.sample command so that the program would return a list that did not include two of one book.
+ 
+Another challenge was that I had multiple technical difficulties; my python program loaded very slowly, so it was difficult to make edits because it took so long for the program to load. I’ve also been experiencing other technical issues with python not running certain files; a lot of technical issues took up some time with the project, which made it a bit more challenging to work on the project.
+ 
+Overall, this was a project where I learned a lot about incorporating flask into a program to build a webpage. Looking back, I wish I had built everything on one html page instead of cycling between two so that users could quickly and easily change input.
