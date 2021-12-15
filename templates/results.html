@@ -2,15 +2,26 @@
 <html lang="en">
 <head><title>Book Recommendations</title></head>
 <body>
-<h2><font face="Tahoma" color="#000000">Book Recommendations</font></h2>
-<h5><font face="Tahoma" color="#000000">Reads that complement the weather.</font></h5>
+<style>
+body,h1,h2,h3,h4,h5,h6,p {font-family: "Lato", sans-serif;}
+body, html {
+  height: 100%;
+  color: #000000;
+  line-height: 1.8;
+}
+</style>
+<h2 style="color:#14213D; background-color:#BFD1E5;">Book Recommendations</font></h2>
+<h3>Reads that complement the weather.</h3>
 {% for book in booklist %}
-<img src= '{{book.image}}' width="90px" align="left" hspace="10">
+<div style="clear:both;">
+<img src= '{{book.image}}' width="90px" style = "float:left" align="left" hspace="10" vspace="15">
+<div style="float:left">
 <h3 align="left">{{book.title}}</h3>
 <h4 align="left">{{book.author}}</h4>
 <p align="left">{{book.description}}</p>
-<br></br>
+</div>
+</div>
 {% endfor %}
-
 </body>
+</html>
 </html>
