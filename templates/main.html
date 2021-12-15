@@ -2,8 +2,16 @@
 <html lang="en">
 <head><title>Book Recommendations</title></head>
 <body>
-<h2><font face="Tahoma" color="#000000">WeatherReads</font></h2>
-<h5><font face="Tahoma" color="#000000">Choose the weather and get 5 book recommendations!</font></h5>
+<style>
+body,h1,h2,h3,h4,h5,h6,label {font-family: "Lato", sans-serif;}
+body, html {
+  height: 100%;
+  color: #000000;
+  line-height: 1.8;
+}
+</style>
+<h2 style="color:#14213D; background-color:#BFD1E5;">WeatherReads &#127780;</h2>
+<h3>Choose the weather and get 5 book recommendations!</h3>
 {% for book in books %}
 <img src= '{{book.image()}}' alt = '{{book.title}}'>
 {% endfor %}
