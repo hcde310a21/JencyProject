@@ -1,5 +1,5 @@
 import urllib.parse, urllib.request, urllib.error, json
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, logging
 import random
 import pip
 import ssl
@@ -22,13 +22,11 @@ def safe_get(url):
     return None
 
 
-bookstr = ["animals", 'Expeditions-Disasters-and-Adventures', 'Young-Adult', 'Espionage']
-queries = {
-    'snow': 'https://api.nytimes.com/svc/books/v3/lists/current/' + bookstr[0] + '.json?api-key=GUyidHNuX60WGmxjB9I7lSpG7KTdYqtf',
-    'rain': 'https://api.nytimes.com/svc/books/v3/lists/current/' + bookstr[1] + '.json?api-key=GUyidHNuX60WGmxjB9I7lSpG7KTdYqtf',
-    'sun': 'https://api.nytimes.com/svc/books/v3/lists/current/' + bookstr[2] + '.json?api-key=GUyidHNuX60WGmxjB9I7lSpG7KTdYqtf',
-    'clouds': 'https://api.nytimes.com/svc/books/v3/lists/current/' + bookstr[3] + '.json?api-key=GUyidHNuX60WGmxjB9I7lSpG7KTdYqtf'
-}
+snowstr = ['Expeditions-Disasters-and-Adventures', 'Religion-Spirituality-and-Faith', 'Childrens-Middle-Grade']
+rainstr = ['Paperback-Graphic-Books', 'Science', 'Animals']
+sunstr = ['Family', 'Travel', 'Young-Adult']
+cloudstr = ['Espionage', 'Health', 'Picture-Books']
+
 
 class book():
     def __init__(self, booksdata):
@@ -49,6 +47,12 @@ def main():
 @app.route("/results")
 def results():
     value = request.args.get('weather')
+    queries = {
+    'snow': 'https://api.nytimes.com/svc/books/v3/lists/current/' + str(random.choice(snowstr)) + '.json?api-key=GUyidHNuX60WGmxjB9I7lSpG7KTdYqtf',
+    'rain': 'https://api.nytimes.com/svc/books/v3/lists/current/' + str(random.choice(rainstr)) + '.json?api-key=GUyidHNuX60WGmxjB9I7lSpG7KTdYqtf',
+    'sun': 'https://api.nytimes.com/svc/books/v3/lists/current/' + str(random.choice(sunstr)) + '.json?api-key=GUyidHNuX60WGmxjB9I7lSpG7KTdYqtf',
+    'clouds': 'https://api.nytimes.com/svc/books/v3/lists/current/' + str(random.choice(cloudstr)) + '.json?api-key=GUyidHNuX60WGmxjB9I7lSpG7KTdYqtf'
+    }
     bookrequest = urllib.request.urlopen(queries[value])
     bookdict = json.load(bookrequest)
     bookdictlist = [book(x) for x in bookdict['results']['books']]
